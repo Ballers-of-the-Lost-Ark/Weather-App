@@ -1,12 +1,8 @@
-// Unsecure javascript
-// VOBFSebdrZuI5IrJqs4duKMUTUvXYNjO
-// I would never do this in a real application
-
 class WeatherData{
     async gettingData(zip){
         localStorage.setItem('zip', zip);
         // Fetching background information
-        const fetching = await fetch(`http://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=%09VOBFSebdrZuI5IrJqs4duKMUTUvXYNjO&q=${zip}`);
+        const fetching = await fetch(`http://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=APIKEY=${zip}`);
         const data = await fetching.json();
 
         const locationKey = data[0].Key;
@@ -16,7 +12,7 @@ class WeatherData{
         const region = data[0].AdministrativeArea.ID;
         
         // Fetching current conditioms
-        const currentConditions = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=VOBFSebdrZuI5IrJqs4duKMUTUvXYNjO&details=true`);
+        const currentConditions = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=APIKEY&details=true`);
         const currentConditionsJSON = await currentConditions.json();
 
         const realFeel = currentConditionsJSON[0].RealFeelTemperature.Imperial.Value;
@@ -75,7 +71,7 @@ class WeatherData{
         }
 
         // Fetching forecast
-        const forecast = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=VOBFSebdrZuI5IrJqs4duKMUTUvXYNjO`);
+        const forecast = await fetch(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${locationKey}?apikey=APIKEY`);
         const forecastJSON = await forecast.json();
 
         let low = forecastJSON.DailyForecasts[0].Temperature.Minimum.Value;
