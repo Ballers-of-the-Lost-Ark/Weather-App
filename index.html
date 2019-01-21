@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="external.css">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+            <div class="drop-down">
+                <div class="main-text">
+                    <h2>Enter Place</h2> 
+                    <p id="close">X</p>
+                </div>
+                    <form action="somewhere.php">
+                        <label>Name</label>
+                        <input id="place-name" type="text" placeholder="London">
+                        <label>Zip code</label>
+                        <input required="yes" id="zip" type="number" placeholder="45151">
+                        <input id="submit" type="submit" value="Change">    
+                    </form>
+                </div>
+
+        <div class="wrapper">
+                <div class="main-info">
+ 
+                </div>
+        
+                <div class="secondary-info">
+                </div>
+                    
+                 <button id="change-location" type="submit">Change Location</button>
+        </div>
+
+        <footer>
+            <p>Powered by <a href="https://www.accuweather.com/">AccuWeather</a></p>
+            <div>
+                <img src="./accuWeather.png" alt="AccuWeather logo">
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="backend.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
